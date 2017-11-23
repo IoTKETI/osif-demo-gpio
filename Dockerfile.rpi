@@ -12,5 +12,4 @@ RUN npm install
 # 앱 소스 추가
 COPY . /usr/src/app
 
-VOLUME ["/sys"]
 CMD [ "npm", "start" ]
