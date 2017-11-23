@@ -49,6 +49,16 @@ ketiCiotClient.setEventListener(ketiCiotClient.KEYS.CIOT_DEMO_SWITCH, 'state', l
 
 
 
+
+ketiCiotClient.setValue(ketiCiotClient.KEYS.CIOT_PROCESS, 'demo-led', {state: 'run', instanceid: '383f327dd3'})
+    .then(function(value){
+        console.log( value );
+
+    })
+    .catch(function(err){
+        console.log( err );
+    });
+
 console.log('start');
 button.watch(light);
 
@@ -56,7 +66,7 @@ button.watch(light);
 
 function serviceShutdown() {
     server.close(function () {
-        ketiCiotClient.setValue(ketiCiotClient.KEYS.CIOT_PROCESS, 'demo-seqgen', {state: 'stop', instanceid: '383f327dd3'})
+        ketiCiotClient.setValue(ketiCiotClient.KEYS.CIOT_PROCESS, 'demo-led', {state: 'stop', instanceid: '383f327dd3'})
             .then(function(value){
                 console.log( value );
                 process.exit(0);
